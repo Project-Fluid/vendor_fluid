@@ -50,6 +50,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.config.media_vol_steps=30 \
     ro.config.bt_sco_vol_steps=30
 
+# Storage manager
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.storage_manager.enabled=true
+
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
