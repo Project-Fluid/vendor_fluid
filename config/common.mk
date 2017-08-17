@@ -58,6 +58,9 @@ PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 # leave less information available via JDWP.
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
+# Disable vendor restrictions
+PRODUCT_RESTRICT_VENDOR_FILES := false
+
 # We modify several neverallows, so let the build proceed
 ifneq ($(TARGET_BUILD_VARIANT),user)
     SELINUX_IGNORE_NEVERALLOWS := true
