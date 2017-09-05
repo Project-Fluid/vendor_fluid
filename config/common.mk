@@ -34,6 +34,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.media_vol_steps=30 \
     ro.config.bt_sco_vol_steps=30
 
+# Common overlay
+PRODUCT_PACKAGE_OVERLAYS += vendor/aosdp/overlay/common
+
 # Disable Rescue Party
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.disable_rescue=true
