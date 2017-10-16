@@ -31,7 +31,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Set custom volume steps
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.media_vol_steps=30
+    ro.config.media_vol_steps=30 \
+    ro.config.bt_sco_vol_steps=30
 
 # Disable Rescue Party
 PRODUCT_PROPERTY_OVERRIDES += \
