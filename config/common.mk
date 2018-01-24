@@ -39,6 +39,10 @@ endif
 # Common overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/magma/overlay/common
 
+# Media
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.recorder.show_manufacturer_and_model=true
+
 # Permissions
 PRODUCT_COPY_FILES += \
     vendor/magma/config/permissions/magma-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/magma-power-whitelist.xml \
