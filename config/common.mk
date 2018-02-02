@@ -40,6 +40,10 @@ endif
 PRODUCT_PACKAGE_OVERLAYS += vendor/magma/overlay/common
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/magma/overlay/common
 
+# Dex preopt
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUI
+
 # Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
 
