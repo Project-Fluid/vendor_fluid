@@ -19,7 +19,8 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.android.dataroaming=false \
     ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
     ro.com.android.dateformat=MM-dd-yyyy \
-    persist.sys.disable_rescue=true
+    persist.sys.disable_rescue=true \
+    ro.setupwizard.rotation_locked=true
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
