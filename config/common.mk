@@ -13,6 +13,7 @@ PRODUCT_COPY_FILES += \
     vendor/aosdp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     vendor/aosdp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
     vendor/aosdp/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
+    vendor/aosdp/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     keyguard.no_require_sim=true \
