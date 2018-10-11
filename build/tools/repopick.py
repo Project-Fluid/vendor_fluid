@@ -273,6 +273,8 @@ if __name__ == '__main__':
         if name not in project_name_to_data:
             project_name_to_data[name] = {}
         revision = revision.split('refs/heads/')[-1]
+        if path is None:
+            path = name
         project_name_to_data[name][revision] = path
 
     # get data on requested changes
