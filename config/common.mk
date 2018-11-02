@@ -5,6 +5,10 @@ PRODUCT_BRAND ?= Fluid
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
+# Priv-app permissions
+PRODUCT_COPY_FILES += \
+    vendor/fluid/prebuilt/common/etc/permissions/privapp-permissions-fluid.xml:system/etc/permissions/privapp-permissions-fluid.xml
+
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=android-google
