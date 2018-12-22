@@ -5,7 +5,9 @@
 
 export C=/tmp/backupdir
 export S=/system
-export V=9.0
+export V=9
+
+export ADDOND_VERSION=1
 
 # Scripts in /system/addon.d expect to find backuptool.functions in /tmp
 cp -f /tmp/install/bin/backuptool.functions /tmp
@@ -34,10 +36,10 @@ check_prereq() {
 if [ ! -r /system/build.prop ]; then
     return 0
 fi
-# if [ ! grep -q "^ro.aosdp.version=$V.*" /system/etc/prop.default /system/build.prop ]; then
-#   echo "Not backing up files from incompatible version: $V"
-#   return 0
-# fi
+ if [ ! grep -q "^ro.aosdp.version=$V.*" /system/etc/prop.default /system/build.prop ]; then
+   echo "Not backing up files from incompatible version: $V"
+   return 0
+ fi
 return 1
 }
 
