@@ -39,6 +39,10 @@ endif
 # Common overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/magma/overlay/common
 
+# Enforce privapp-permissions whitelist
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.control_privapp_permissions=enforce
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.recorder.show_manufacturer_and_model=true
