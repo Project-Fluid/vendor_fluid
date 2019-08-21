@@ -9,6 +9,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     apns-conf.xml
 
-# SIM Toolkit
+# Telephony packages
 PRODUCT_PACKAGES += \
-    Stk
+    messaging \
+    Stk \
+    CellBroadcastReceiver
