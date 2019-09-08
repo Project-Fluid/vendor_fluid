@@ -1,3 +1,6 @@
+#
+# Copyright (C) 2017 The LineageOS Project
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -9,6 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-PRODUCT_COPY_FILES += \
-    vendor/magma/prebuilt/common/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/BOOTANIMATION)
