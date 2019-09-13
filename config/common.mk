@@ -39,8 +39,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.android.dateformat=MM-dd-yyyy \
     persist.sys.disable_rescue=true \
     persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0 \
-    ro.build.selinux=1
+    persist.sys.wfd.virtual=0
 
 # Set custom volume steps
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
