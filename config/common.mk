@@ -25,7 +25,8 @@ endif
 # Permissions
 PRODUCT_COPY_FILES += \
     vendor/aosdp/config/permissions/aosdp-power-whitelist.xml:system/etc/sysconfig/aosdp-power-whitelist.xml \
-    vendor/aosdp/config/permissions/aosdp-privapp-permissions.xml:system/etc/permissions/aosdp-privapp-permissions.xml
+    vendor/aosdp/config/permissions/privapp-permissions-aosdp-system.xml:system/etc/permissions/privapp-permissions-aosdp.xml \
+    vendor/aosdp/config/permissions/privapp-permissions-aosdp-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-aosdp.xml
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     keyguard.no_require_sim=true \
