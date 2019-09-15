@@ -12,20 +12,20 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/aosdp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     vendor/aosdp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/aosdp/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
-    vendor/aosdp/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/aosdp/prebuilt/common/bin/50-base.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-base.sh \
+    vendor/aosdp/prebuilt/common/bin/blacklist:$(TARGET_COPY_OUT_SYSTEM)/addon.d/blacklist
 
 ifeq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    vendor/aosdp/prebuilt/common/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
-    vendor/aosdp/prebuilt/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
-    vendor/aosdp/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
+    vendor/aosdp/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/aosdp/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/aosdp/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    vendor/aosdp/config/permissions/aosdp-power-whitelist.xml:system/etc/sysconfig/aosdp-power-whitelist.xml \
-    vendor/aosdp/config/permissions/privapp-permissions-aosdp-system.xml:system/etc/permissions/privapp-permissions-aosdp.xml \
+    vendor/aosdp/config/permissions/aosdp-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/aosdp-power-whitelist.xml \
+    vendor/aosdp/config/permissions/privapp-permissions-aosdp-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-aosdp.xml \
     vendor/aosdp/config/permissions/privapp-permissions-aosdp-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-aosdp.xml
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
