@@ -12,23 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Versioning System
-PRODUCT_VERSION_MAJOR = 9
-PRODUCT_VERSION_MINOR = 0
+# Version of the Rom
+MAGMA_CODENAME = Moonshine
 
-DATE := $(shell date +%Y%m%d)
-TARGET_PRODUCT_SHORT := $(subst aosdp_,,$(AOSDP_BUILDTYPE))
+TARGET_PRODUCT_SHORT := $(subst magma_,,$(MAGMA_BUILDTYPE))
 
-AOSDP_BUILDTYPE ?= Alpha
-AOSDP_BUILD_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)
-AOSDP_VERSION := $(AOSDP_BUILD_VERSION)-$(AOSDP_BUILDTYPE)-$(AOSDP_BUILD)-$(DATE)
-ROM_FINGERPRINT := AOSDP/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%H%M)
+MAGMA_BUILDTYPE ?= Alpha
+MAGMA_BUILD_VERSION := $(MAGMA_CODENAME)
+MAGMA_VERSION := $(MAGMA_BUILD_VERSION)-$(MAGMA_BUILDTYPE)-$(MAGMA_BUILD)-$(shell date -u +%Y%m%d)
+ROM_FINGERPRINT := MAGMA/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%H%M)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-  ro.aosdp.build.version=$(AOSDP_BUILD_VERSION) \
-  ro.aosdp.build.date=$(DATE) \
-  ro.aosdp.buildtype=$(AOSDP_BUILDTYPE) \
-  ro.aosdp.fingerprint=$(ROM_FINGERPRINT) \
-  ro.aosdp.version=$(AOSDP_VERSION) \
-  ro.aosdp.device=$(AOSDP_BUILD) \
-  ro.modversion=$(AOSDP_VERSION)
+  ro.magma.build.version=$(MAGMA_BUILD_VERSION) \
+  ro.magma.buildtype=$(MAGMA_BUILDTYPE) \
+  ro.magma.fingerprint=$(ROM_FINGERPRINT) \
+  ro.magma.version=$(MAGMA_VERSION) \
+  ro.magma.device=$(MAGMA_BUILD) \
+  ro.modversion=$(MAGMA_VERSION)

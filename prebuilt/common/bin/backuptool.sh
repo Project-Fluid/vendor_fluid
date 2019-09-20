@@ -5,7 +5,7 @@
 
 export C=/tmp/backupdir
 export S=$2
-export V=9
+export V=10
 
 export ADDOND_VERSION=1
 
@@ -36,7 +36,7 @@ check_prereq() {
 if [ ! -r $S/build.prop ]; then
     return 0
 fi
- if [ ! grep -q "^ro.aosdp.version=$V.*" $S/etc/prop.default $S/build.prop ]; then
+ if [ ! grep -q "^ro.magma.version=$V.*" $S/etc/prop.default $S/build.prop ]; then
    echo "Not backing up files from incompatible version: $V"
    return 0
  fi

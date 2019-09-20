@@ -6,12 +6,12 @@ import (
 	"android/soong/android"
 )
 
-func aosdpExpandVariables(ctx android.ModuleContext, in string) string {
-	aosdpVars := ctx.Config().VendorConfig("aosdpVarsPlugin")
+func magmaExpandVariables(ctx android.ModuleContext, in string) string {
+	magmaVars := ctx.Config().VendorConfig("magmaVarsPlugin")
 
 	out, err := android.Expand(in, func(name string) (string, error) {
-		if aosdpVars.IsSet(name) {
-			return aosdpVars.String(name), nil
+		if magmaVars.IsSet(name) {
+			return magmaVars.String(name), nil
 		}
 		// This variable is not for us, restore what the original
 		// variable string will have looked like for an Expand

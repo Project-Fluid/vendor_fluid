@@ -10,23 +10,23 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/aosdp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/aosdp/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/aosdp/prebuilt/common/bin/50-base.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-base.sh \
-    vendor/aosdp/prebuilt/common/bin/blacklist:$(TARGET_COPY_OUT_SYSTEM)/addon.d/blacklist
+    vendor/magma/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/magma/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/magma/prebuilt/common/bin/50-base.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-base.sh \
+    vendor/magma/prebuilt/common/bin/blacklist:$(TARGET_COPY_OUT_SYSTEM)/addon.d/blacklist
 
 ifeq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    vendor/aosdp/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
-    vendor/aosdp/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
-    vendor/aosdp/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+    vendor/magma/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/magma/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/magma/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    vendor/aosdp/config/permissions/aosdp-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/aosdp-power-whitelist.xml \
-    vendor/aosdp/config/permissions/privapp-permissions-aosdp-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-aosdp.xml \
-    vendor/aosdp/config/permissions/privapp-permissions-aosdp-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-aosdp.xml
+    vendor/magma/config/permissions/magma-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/magma-power-whitelist.xml \
+    vendor/magma/config/permissions/privapp-permissions-magma-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-magma.xml \
+    vendor/magma/config/permissions/privapp-permissions-magma-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-magma.xml
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     keyguard.no_require_sim=true \
@@ -48,7 +48,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.config.bt_sco_vol_steps=30
 
 # Common overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/aosdp/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/magma/overlay/common
 
 # Disable Rescue Party
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -68,4 +68,4 @@ PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
 # Versioning
-include vendor/aosdp/config/version.mk
+include vendor/magma/config/version.mk

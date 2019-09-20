@@ -1,14 +1,14 @@
 bootstrap_go_package {
-    name: "soong-aosdp",
-    pkgPath: "aosdp/soong/android",
+    name: "soong-magma",
+    pkgPath: "magma/soong/android",
     srcs: [
         "android/variable.go",
     ],
 }
 
 bootstrap_go_package {
-    name: "soong-aosdp-generator",
-    pkgPath: "aosdp/soong/generator",
+    name: "soong-magma-generator",
+    pkgPath: "magma/soong/generator",
     deps: [
         "blueprint",
         "blueprint-pathtools",
@@ -23,7 +23,7 @@ bootstrap_go_package {
     pluginFor: ["soong_build"],
 }
 
-aosdp_generator {
+magma_generator {
     name: "generated_kernel_includes",
 
     // The headers make command
