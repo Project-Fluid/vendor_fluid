@@ -12,19 +12,37 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Version of the Rom
+# Versioning System
 MAGMA_CODENAME = Moonshine
 
-TARGET_PRODUCT_SHORT := $(subst magma_,,$(MAGMA_BUILDTYPE))
+TARGET_PRODUCT_SHORT := $(subst magma_,,$(MAGMA_BUILD_TYPE))
 
-MAGMA_BUILDTYPE ?= Alpha
+ifndef MAGMA_BUILD_TYPE
+    MAGMA_BUILD_TYPE := UNOFFICIAL
+endif
+
+# Only include Updater for official, weeklies, and nightly builds
+ifeq ($(filter-out OFFICIAL WEEKLIES NIGHTLY,$(MAGMA_BUILD_TYPE)),)
+    PRODUCT_PACKAGES += \
+        Updater
+endif
+
+# Sign builds if building an official, weekly and nightly build
+ifeq ($(filter-out OFFICIAL WEEKLIES NIGHTLY,$(MAGMA_BUILD_TYPE)),)
+    PRODUCT_DEFAULT_DEV_CERTIFICATE := $(KEYS_LOCATION)
+endif
+
+# Set all versions
+BUILD_DATE := $(shell date -u +%Y%m%d)
+BUILD_TIME := $(shell date -u +%H%M)
 MAGMA_BUILD_VERSION := $(MAGMA_CODENAME)
-MAGMA_VERSION := $(MAGMA_BUILD_VERSION)-$(MAGMA_BUILDTYPE)-$(MAGMA_BUILD)-$(shell date -u +%Y%m%d)
-ROM_FINGERPRINT := MAGMA/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(shell date -u +%H%M)
+MAGMA_VERSION := $(MAGMA_BUILD_VERSION)-$(MAGMA_BUILD_TYPE)-$(MAGMA_BUILD)-$(BUILD_DATE)
+ROM_FINGERPRINT := Magma/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(BUILD_TIME)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
   ro.magma.build.version=$(MAGMA_BUILD_VERSION) \
-  ro.magma.buildtype=$(MAGMA_BUILDTYPE) \
+  ro.magma.build.date=$(BUILD_DATE) \
+  ro.magma.buildtype=$(MAGMA_BUILD_TYPE) \
   ro.magma.fingerprint=$(ROM_FINGERPRINT) \
   ro.magma.version=$(MAGMA_VERSION) \
   ro.magma.device=$(MAGMA_BUILD) \
