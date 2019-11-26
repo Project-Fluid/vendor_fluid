@@ -82,6 +82,9 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 endif
 
 # Packages
+include vendor/magma/config/bootanimation.mk
+
+# Packages
 include vendor/magma/config/packages.mk
 
 # Versioning
