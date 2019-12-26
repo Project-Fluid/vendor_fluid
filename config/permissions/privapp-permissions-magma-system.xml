@@ -20,5 +20,11 @@
         <permission name="android.permission.MODIFY_AUDIO_ROUTING"/>
         <permission name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     </privapp-permissions>
+	
+    <privapp-permissions package="com.magma.updater">
+        <permission name="android.permission.ACCESS_CACHE_FILESYSTEM"/>
+        <permission name="android.permission.REBOOT"/>
+        <permission name="android.permission.RECOVERY"/>
+    </privapp-permissions>
 
 </permissions>
