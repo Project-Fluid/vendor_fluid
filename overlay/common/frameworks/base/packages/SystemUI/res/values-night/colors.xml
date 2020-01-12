@@ -21,15 +21,19 @@
     <color name="global_actions_separated_background">@*android:color/primary_dark_device_default_settings</color>
     <!-- The color of the background in the grid of the Global Actions menu -->
     <color name="global_actions_grid_background">@*android:color/primary_device_default_settings</color>
+    <!-- The background color of the notification shade -->
+    <color name="notification_shade_background_color">@*android:color/primary_dark_device_default_settings</color>
+    <!-- The color of the background in the grid of the Global Actions menu -->
+    <color name="notification_guts_bg_color">@*android:color/primary_device_default_settings</color>
     <!-- The color of the material notification background -->
-    <color name="notification_material_background_color">#ff202125</color>
+    <color name="notification_material_background_color">@*android:color/primary_device_default_settings</color>
     <!-- The color of the legacy notifications with customs backgrounds (gingerbread and lollipop.)
     It's fine to override this color since at that point the shade was dark. -->
-    <color name="notification_legacy_background_color">#ff202125</color>
-    <!-- The color of the background in the top part of QSCustomizer -->
-    <color name="qs_customize_background">#ff202125</color>
-    <!-- The color of the background in the bottom part of QSCustomizer -->
-    <color name="qs_customize_decoration">#ff1c1d20</color>
+    <color name="notification_legacy_background_color">@*android:color/primary_device_default_settings</color>
     <!-- The color of the material notification background when dimmed -->
-    <color name="notification_material_background_dimmed_color">#FF202125</color>
+    <color name="notification_material_background_dimmed_color">@*android:color/primary_dark_device_default_settings</color>
+    <!-- The color of the background in the top part of QSCustomizer -->
+    <color name="qs_customize_background">@*android:color/primary_device_default_settings</color>
+    <!-- The color of the background in the bottom part of QSCustomizer -->
+    <color name="qs_customize_decoration">@*android:color/primary_dark_device_default_settings</color>
 </resources>
