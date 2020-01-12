@@ -1,5 +1,9 @@
 # Custom Magma packages
 PRODUCT_PACKAGES += \
     FDroid \
-    ThemePicker \
-    MagmaOverlayStub
+    ThemePicker
+
+# Themes
+PRODUCT_PACKAGES += \
+    MagmaOverlayStub \
+    PrimaryColorMagmaBlackOverlay
