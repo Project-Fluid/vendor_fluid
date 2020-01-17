@@ -102,7 +102,9 @@ PRODUCT_PACKAGES += \
     SystemStyleOverlay \
     SystemUIStyleOverlay \
     SystemNightOverlay \
-    SystemUINightOverlay
+    SystemUINightOverlay \
+    SystemSolarizedDarkOverlay \
+    SystemUISolarizedDarkOverlay
 
 # Bootanimation
 include vendor/fluid/config/bootanimation.mk
