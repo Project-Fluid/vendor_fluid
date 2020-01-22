@@ -38,6 +38,7 @@ endif
 
 # Common overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/magma/overlay/common
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/magma/overlay/common
 
 # Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
