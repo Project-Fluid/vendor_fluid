@@ -2,4 +2,5 @@
 PRODUCT_PACKAGES += \
     ThemePicker \
     MagmaOverlayStub \
-    StitchImage
+    StitchImage \
+    BrightnessSliderOverlay
