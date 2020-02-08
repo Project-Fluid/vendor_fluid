@@ -13,3 +13,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver \
     Stk
+
+# Messaging
+ifneq ($(EXCLUDE_MESSAGING_APP),true)
+PRODUCT_PACKAGES += messaging
+endif
