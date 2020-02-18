@@ -87,7 +87,7 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
     SELINUX_IGNORE_NEVERALLOWS := true
 endif
 
-# Packages
+# Bootanimation
 include vendor/magma/config/bootanimation.mk
 
 # Packages
