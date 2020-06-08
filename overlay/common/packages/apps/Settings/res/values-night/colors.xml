@@ -16,9 +16,9 @@
 
 <resources>
 
-    <color name="search_bar_background">@*android:color/primary_dark_device_default_settings</color>
+    <color name="search_bar_background">#FF303135</color>
 
     <!-- Dialog background color -->
-    <color name="dialog_background">@*android:color/primary_dark_device_default_settings</color>
+    <color name="dialog_background">#FF303135</color>
 
 </resources>
