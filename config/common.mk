@@ -87,8 +87,7 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 endif
 
 # Bootanimation
-PRODUCT_PACKAGES += \
-    bootanimation.zip
+include vendor/magma/config/bootanimation.mk
 
 # Packages
 include vendor/magma/config/packages.mk
