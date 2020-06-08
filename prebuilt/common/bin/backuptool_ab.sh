@@ -50,7 +50,7 @@ if [ ! -r /system/build.prop ]; then
     exit 127
 fi
 
-grep -q "^ro.magma.version=$V.*" /system/build.prop && return 1
+grep -q "^ro.fluid.version=$V.*" /system/build.prop && return 1
 
 echo "Not backing up files from incompatible version: $V"
 exit 127

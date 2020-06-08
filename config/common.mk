@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= Magma
+PRODUCT_BRAND ?= Fluid
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -24,20 +24,20 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/magma/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/magma/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/magma/prebuilt/common/bin/50-base.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-base.sh
+    vendor/fluid/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/fluid/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/fluid/prebuilt/common/bin/50-base.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-base.sh
 
 ifneq ($(AB_OTA_PARTITIONS),)
 PRODUCT_COPY_FILES += \
-    vendor/magma/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
-    vendor/magma/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
-    vendor/magma/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
+    vendor/fluid/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+    vendor/fluid/prebuilt/common/bin/backuptool_ab.functions:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.functions \
+    vendor/fluid/prebuilt/common/bin/backuptool_postinstall.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_postinstall.sh
 endif
 
 # Common overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/magma/overlay/common
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/magma/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/fluid/overlay/common
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/fluid/overlay/common
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -57,9 +57,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    vendor/magma/config/permissions/magma-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/magma-power-whitelist.xml \
-    vendor/magma/config/permissions/privapp-permissions-magma-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-magma.xml \
-    vendor/magma/config/permissions/privapp-permissions-magma-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-magma.xml
+    vendor/fluid/config/permissions/fluid-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/fluid-power-whitelist.xml \
+    vendor/fluid/config/permissions/privapp-permissions-fluid-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-fluid.xml \
+    vendor/fluid/config/permissions/privapp-permissions-fluid-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-fluid.xml
 
 # Set custom volume steps
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -87,10 +87,10 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 endif
 
 # Bootanimation
-include vendor/magma/config/bootanimation.mk
+include vendor/fluid/config/bootanimation.mk
 
 # Packages
-include vendor/magma/config/packages.mk
+include vendor/fluid/config/packages.mk
 
 # Versioning
-include vendor/magma/config/version.mk
+include vendor/fluid/config/version.mk
