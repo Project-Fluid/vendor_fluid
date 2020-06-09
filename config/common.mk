@@ -55,11 +55,16 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     media.recorder.show_manufacturer_and_model=true
 
+# Sysconf
+PRODUCT_COPY_FILES += \
+    vendor/fluid/prebuilt/common/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
+
 # Permissions
 PRODUCT_COPY_FILES += \
     vendor/fluid/config/permissions/fluid-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/fluid-power-whitelist.xml \
     vendor/fluid/config/permissions/privapp-permissions-fluid-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-fluid.xml \
-    vendor/fluid/config/permissions/privapp-permissions-fluid-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-fluid.xml
+    vendor/fluid/config/permissions/privapp-permissions-fluid-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-fluid.xml \
+    vendor/fluid/prebuilt/common/etc/permissions/privapp-permissions-lawnchair.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lawnchair.xml
 
 # Set custom volume steps
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -94,3 +99,6 @@ include vendor/fluid/config/packages.mk
 
 # Versioning
 include vendor/fluid/config/version.mk
+
+# Fextras
+include vendor/fextras/Fextras.mk

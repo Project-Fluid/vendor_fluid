@@ -11,4 +11,4 @@
 # limitations under the License.
 
 PRODUCT_COPY_FILES += \
-    vendor/magma/prebuilt/common/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
+    vendor/fluid/prebuilt/common/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
