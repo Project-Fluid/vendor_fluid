@@ -1,5 +1,5 @@
-# Custom Magma packages
+# Custom Fluid packages
 PRODUCT_PACKAGES += \
-    FDroid \
     ThemePicker \
-    MagmaOverlayStub
+    MagmaOverlayStub \
+    StitchImage
