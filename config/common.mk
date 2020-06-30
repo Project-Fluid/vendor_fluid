@@ -119,3 +119,10 @@ include vendor/fluid/config/version.mk
 
 # Fextras
 include vendor/fextras/Fextras.mk
+
+# GApps config
+ifeq ($(TARGET_INCLUDE_GAPPS), true)
+ifneq ($(TARGET_GO_GAPPS), true)
+include vendor/gapps/config.mk
+endif
+endif
