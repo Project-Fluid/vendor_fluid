@@ -28,7 +28,7 @@ fluid: otapackage
 	@echo -e ""
 	@echo -e "${cya}Building ${bldcya}Fluid! ${txtrst}";
 	@echo -e ""
-	@echo -e ${CL_GRN}"-----#StayFluid -----"                                   
+	@echo -e ${CL_GRN}"----- /#StayFluid -----"                                   
         @echo -e ""                                          
 	@echo -e ${CL_GRN}"    ,---,.  ,--,                                     "
 	@echo -e ${CL_GRN}"  ,'  .' |,--.'|                   ,--,         ,---,"
