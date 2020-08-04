@@ -14,7 +14,7 @@
 
 # Versioning System
 FLUID_CODENAME = Quenol
-FLUID_NUM_VER = 0.5
+FLUID_NUM_VER = 0.6
 
 TARGET_PRODUCT_SHORT := $(subst fluid_,,$(FLUID_BUILD_TYPE))
 
