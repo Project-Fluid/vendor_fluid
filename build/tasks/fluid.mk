@@ -1,6 +1,7 @@
 # Copyright (C) 2017 Unlegacy-Android
 # Copyright (C) 2017 The LineageOS Project
-# Copyright (C) 2018 The PixelExperience Project
+# Copyright (C) 2017-2018 AOSiP
+# Copyright (C) 2019 AOSDP
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,10 +15,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# -----------------------------------------------------------------
+# Fluid OTA update package
+
 CUSTOM_TARGET_PACKAGE := $(PRODUCT_OUT)/$(CUSTOM_VERSION).zip
 
-.PHONY: bacon
-bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
+.PHONY: fluid otapackage bacon
+otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
+fluid: otapackage
 	$(hide) mv $(INTERNAL_OTA_PACKAGE_TARGET) $(CUSTOM_TARGET_PACKAGE)
-	$(hide) $(MD5SUM) $(CUSTOM_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(CUSTOM_TARGET_PACKAGE).md5sum
-	@echo "Package Complete: $(CUSTOM_TARGET_PACKAGE)" >&2
+	$(hide) $(MD5SUM) $(CUSTOM_TARGET_PACKAGE) | cut -d ' ' -f1 > $(CUSTOM_TARGET_PACKAGE).md5sum
+	@echo -e ""
+	@echo -e "${cya}Building ${bldcya}Fluid! ${txtrst}";
+	@echo -e ""
+	@echo -e ${CL_GRN}"----- Enjoy! -----"
+	@echo -e ""
+	@echo -e "zip: "$(CUSTOM_TARGET_PACKAGE)
+	@echo -e "md5: `cat $(CUSTOM_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`"
+	@echo -e "size:`ls -lah $(CUSTOM_TARGET_PACKAGE) | cut -d ' ' -f 5`"
+	@echo -e ""
+
+bacon: fluid
