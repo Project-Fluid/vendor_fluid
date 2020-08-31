@@ -1,6 +1,7 @@
 # Custom Fluid packages
 PRODUCT_PACKAGES += \
-    StitchImage
+    StitchImage \
+    ThemePicker
 
 # Custom Overlays
 # Settings
