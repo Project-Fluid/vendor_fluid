@@ -870,5 +870,5 @@ function fixup_common_out_dir() {
 }
 
 fluid_releaser() {
-    $ANDROID_BUILD_TOP/vendor/fluid/tools/releaser.sh
+    $ANDROID_BUILD_TOP/vendor/aosp/tools/releaser.sh
 }
