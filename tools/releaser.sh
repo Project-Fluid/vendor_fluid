@@ -106,7 +106,7 @@ read -s -p "SourceForge password: " RELEASE_SF_PASSWORD
 echo ""
 
 # Get all the device official builds
-RELEASE_ARTIFACTS=$(ls out/target/product/$RELEASE_DEVICE_CODENAME/FluidOS-*-OFFICIAL-*.zip)
+RELEASE_ARTIFACTS=$(ls out/target/product/$RELEASE_DEVICE_CODENAME/Fluid-*-OFFICIAL-*.zip)
 # Check if a build has been found
 [ "$RELEASE_ARTIFACTS" = "" ] && echo "Error: no artifact has been found! Be sure that an official build is in out folder" && exit
 
