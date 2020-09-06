@@ -82,7 +82,7 @@ function breakfast()
                 variant="userdebug"
             fi
 
-            lunch aosp_$target-$variant
+            lunch fluid_$target-$variant
         fi
     fi
     return $?
@@ -93,7 +93,7 @@ alias bib=breakfast
 function eat()
 {
     if [ "$OUT" ] ; then
-        ZIPPATH=`ls -tr "$OUT"/PixelExperience-*.zip | tail -1`
+        ZIPPATH=`ls -tr "$OUT"/Fluid-*.zip | tail -1`
         if [ ! -f $ZIPPATH ] ; then
             echo "Nothing to eat"
             return 1
@@ -101,7 +101,7 @@ function eat()
         echo "Waiting for device..."
         adb wait-for-device-recovery
         echo "Found device"
-        if (adb shell getprop org.pixelexperience.device | grep -q "$CUSTOM_BUILD"); then
+        if (adb shell getprop com.fluid.device | grep -q "$CUSTOM_BUILD"); then
             echo "Rebooting to sideload for install"
             adb reboot sideload-auto-reboot
             adb wait-for-sideload
@@ -287,11 +287,11 @@ function githubremote()
         return 1
     fi
     git remote rm github 2> /dev/null
-    local REMOTE=$(git config --get remote.pixel.projectname)
+    local REMOTE=$(git config --get remote.fluid.projectname)
 
     local PROJECT=$(echo $REMOTE | sed -e "s#platform/#android/#g; s#/#_#g")
 
-    git remote add github https://github.com/PixelExperience/$PROJECT
+    git remote add github https://github.com/Project-Fluid/$PROJECT
     echo "Remote 'github' created"
 }
 
@@ -322,7 +322,7 @@ function installboot()
     adb wait-for-device-recovery
     adb root
     adb wait-for-device-recovery
-    if (adb shell getprop org.pixelexperience.device | grep -q "$LINEAGE_BUILD");
+    if (adb shell getprop com.fluid.device | grep -q "$LINEAGE_BUILD");
     then
         adb push $OUT/boot.img /cache/
         adb shell dd if=/cache/boot.img of=$PARTITION
@@ -360,7 +360,7 @@ function installrecovery()
     adb wait-for-device-recovery
     adb root
     adb wait-for-device-recovery
-    if (adb shell getprop org.pixelexperience.device | grep -q "$LINEAGE_BUILD");
+    if (adb shell getprop com.fluid.device | grep -q "$LINEAGE_BUILD");
     then
         adb push $OUT/recovery.img /cache/
         adb shell dd if=/cache/recovery.img of=$PARTITION
@@ -715,7 +715,7 @@ function dopush()
         echo "Device Found."
     fi
 
-    if (adb shell getprop org.pixelexperience.device | grep -q "$CUSTOM_BUILD") || [ "$FORCE_PUSH" = "true" ];
+    if (adb shell getprop com.fluid.device | grep -q "$CUSTOM_BUILD") || [ "$FORCE_PUSH" = "true" ];
     then
     # retrieve IP and PORT info if we're using a TCP connection
     TCPIPPORT=$(adb devices \
