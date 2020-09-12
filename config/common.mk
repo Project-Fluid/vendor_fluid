@@ -180,13 +180,7 @@ DEVICE_PACKAGE_OVERLAYS += vendor/fluid/overlay/common
 
 PRODUCT_VERSION_MAJOR = 11
 PRODUCT_VERSION_MINOR = 0
-PRODUCT_VERSION_MAINTENANCE := 0
-
-ifeq ($(TARGET_VENDOR_SHOW_MAINTENANCE_VERSION),true)
-    FLUID_VERSION_MAINTENANCE := $(PRODUCT_VERSION_MAINTENANCE)
-else
-    FLUID_VERSION_MAINTENANCE := 0
-endif
+PRODUCT_VERSION_CODENAME := Rum
 
 # Set FLUID_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
 
@@ -199,71 +193,24 @@ ifndef FLUID_BUILDTYPE
 endif
 
 # Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(FLUID_BUILDTYPE)),)
+ifeq ($(filter OFFICIAL CI BETA,$(FLUID_BUILDTYPE)),)
     FLUID_BUILDTYPE :=
 endif
 
-ifdef FLUID_BUILDTYPE
-    ifneq ($(FLUID_BUILDTYPE), SNAPSHOT)
-        ifdef FLUID_EXTRAVERSION
-            # Force build type to EXPERIMENTAL
-            FLUID_BUILDTYPE := EXPERIMENTAL
-            # Remove leading dash from FLUID_EXTRAVERSION
-            FLUID_EXTRAVERSION := $(shell echo $(FLUID_EXTRAVERSION) | sed 's/-//')
-            # Add leading dash to FLUID_EXTRAVERSION
-            FLUID_EXTRAVERSION := -$(FLUID_EXTRAVERSION)
-        endif
-    else
-        ifndef FLUID_EXTRAVERSION
-            # Force build type to EXPERIMENTAL, SNAPSHOT mandates a tag
-            FLUID_BUILDTYPE := EXPERIMENTAL
-        else
-            # Remove leading dash from FLUID_EXTRAVERSION
-            FLUID_EXTRAVERSION := $(shell echo $(FLUID_EXTRAVERSION) | sed 's/-//')
-            # Add leading dash to FLUID_EXTRAVERSION
-            FLUID_EXTRAVERSION := -$(FLUID_EXTRAVERSION)
-        endif
-    endif
-else
+ifndef FLUID_BUILDTYPE
     # If FLUID_BUILDTYPE is not defined, set to UNOFFICIAL
     FLUID_BUILDTYPE := UNOFFICIAL
-    FLUID_EXTRAVERSION :=
 endif
 
-ifeq ($(FLUID_BUILDTYPE), UNOFFICIAL)
-    ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
-        FLUID_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
-    endif
+ifeq ($(FLUID_BUILDTYPE), CI)
+    # Enforce time of day appending on CI builds
+    FLUID_VERSION_APPEND_TIME_OF_DAY := true
 endif
 
-ifeq ($(FLUID_BUILDTYPE), RELEASE)
-    ifndef TARGET_VENDOR_RELEASE_BUILD_ID
-        FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(FLUID_BUILD)
-    else
-        ifeq ($(TARGET_BUILD_VARIANT),user)
-            ifeq ($(FLUID_VERSION_MAINTENANCE),0)
-                FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(FLUID_BUILD)
-            else
-                FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(FLUID_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(FLUID_BUILD)
-            endif
-        else
-            FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(FLUID_BUILD)
-        endif
-    endif
+ifeq ($(FLUID_VERSION_APPEND_TIME_OF_DAY),true)
+    FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(PRODUCT_VERSION_CODENAME)-$(FLUID_BUILDTYPE)-$(FLUID_BUILD)-$(shell date -u +%Y%m%d_%H%M%S)
 else
-    ifeq ($(FLUID_VERSION_MAINTENANCE),0)
-        ifeq ($(FLUID_VERSION_APPEND_TIME_OF_DAY),true)
-            FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d_%H%M%S)-$(FLUID_BUILDTYPE)$(FLUID_EXTRAVERSION)-$(FLUID_BUILD)
-        else
-            FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(FLUID_BUILDTYPE)$(FLUID_EXTRAVERSION)-$(FLUID_BUILD)
-        endif
-    else
-        ifeq ($(FLUID_VERSION_APPEND_TIME_OF_DAY),true)
-            FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(FLUID_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d_%H%M%S)-$(FLUID_BUILDTYPE)$(FLUID_EXTRAVERSION)-$(FLUID_BUILD)
-        else
-            FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(FLUID_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-$(FLUID_BUILDTYPE)$(FLUID_EXTRAVERSION)-$(FLUID_BUILD)
-        endif
-    endif
+    FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(PRODUCT_VERSION_CODENAME)-$(FLUID_BUILDTYPE)-$(FLUID_BUILD)-$(shell date -u +%Y%m%d)
 endif
 
 PRODUCT_EXTRA_RECOVERY_KEYS += \
@@ -272,29 +219,6 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 -include vendor/fluid-priv/keys/keys.mk
 
 FLUID_DISPLAY_VERSION := $(FLUID_VERSION)
-
-ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),)
-ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),build/target/product/security/testkey)
-    ifneq ($(FLUID_BUILDTYPE), UNOFFICIAL)
-        ifndef TARGET_VENDOR_RELEASE_BUILD_ID
-            ifneq ($(FLUID_EXTRAVERSION),)
-                # Remove leading dash from FLUID_EXTRAVERSION
-                FLUID_EXTRAVERSION := $(shell echo $(FLUID_EXTRAVERSION) | sed 's/-//')
-                TARGET_VENDOR_RELEASE_BUILD_ID := $(FLUID_EXTRAVERSION)
-            else
-                TARGET_VENDOR_RELEASE_BUILD_ID := $(shell date -u +%Y%m%d)
-            endif
-        else
-            TARGET_VENDOR_RELEASE_BUILD_ID := $(TARGET_VENDOR_RELEASE_BUILD_ID)
-        endif
-        ifeq ($(FLUID_VERSION_MAINTENANCE),0)
-            FLUID_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(FLUID_BUILD)
-        else
-            FLUID_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(FLUID_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(FLUID_BUILD)
-        endif
-    endif
-endif
-endif
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/fluid/config/partner_gms.mk
