@@ -14,14 +14,14 @@
 # limitations under the License.
 
 # -----------------------------------------------------------------
-# Lineage OTA update package
+# Fluid OTA update package
 
-LINEAGE_TARGET_PACKAGE := $(PRODUCT_OUT)/lineage-$(LINEAGE_VERSION).zip
+FLUID_TARGET_PACKAGE := $(PRODUCT_OUT)/Fluid-$(FLUID_VERSION).zip
 
 MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
 .PHONY: bacon
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LINEAGE_TARGET_PACKAGE)
-	$(hide) $(MD5) $(LINEAGE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LINEAGE_TARGET_PACKAGE).md5sum
-	@echo "Package Complete: $(LINEAGE_TARGET_PACKAGE)" >&2
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(FLUID_TARGET_PACKAGE)
+	$(hide) $(MD5) $(FLUID_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(FLUID_TARGET_PACKAGE).md5sum
+	@echo "Package Complete: $(FLUID_TARGET_PACKAGE)" >&2
