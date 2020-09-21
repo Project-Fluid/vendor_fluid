@@ -14,8 +14,8 @@
 
 $(call inherit-product, build/target/product/aosp_arm64.mk)
 
-include vendor/fluid/build/target/product/lineage_generic_target.mk
+include vendor/fluid/build/target/product/fluid_generic_target.mk
 
 TARGET_NO_KERNEL_OVERRIDE := true
 
-PRODUCT_NAME := lineage_arm64
+PRODUCT_NAME := fluid_arm64

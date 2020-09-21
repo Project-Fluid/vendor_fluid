@@ -14,11 +14,11 @@
 
 $(call inherit-product, build/target/product/aosp_x86.mk)
 
-include vendor/fluid/build/target/product/lineage_generic_target.mk
+include vendor/fluid/build/target/product/fluid_generic_target.mk
 
 TARGET_USES_64_BIT_BINDER := true
 
-PRODUCT_NAME := lineage_x86
+PRODUCT_NAME := fluid_x86
 
-PRODUCT_SDK_ADDON_NAME := lineage
+PRODUCT_SDK_ADDON_NAME := fluid
 PRODUCT_SDK_ADDON_SYS_IMG_SOURCE_PROP := $(LOCAL_PATH)/source.properties
