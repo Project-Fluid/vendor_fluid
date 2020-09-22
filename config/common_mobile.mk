@@ -1,10 +1,5 @@
-# Inherit common mobile Lineage stuff
+# Inherit common mobile Fluid stuff
 $(call inherit-product, vendor/fluid/config/common.mk)
-
-# Default notification/alarm sounds
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.notification_sound=Argon.ogg \
-    ro.config.alarm_alert=Hassium.ogg
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # Thank you, please drive thru!

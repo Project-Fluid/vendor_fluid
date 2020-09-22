@@ -67,10 +67,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.control_privapp_permissions=log
 
 # Include AOSP audio files
-include vendor/fluid/config/aosp_audio.mk
+#include vendor/fluid/config/aosp_audio.mk
 
 # Include Fluid audio files
-include vendor/fluid/config/fluid_audio.mk
+#include vendor/fluid/config/fluid_audio.mk
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
