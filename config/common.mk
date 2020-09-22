@@ -88,63 +88,6 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
-# AOSP packages
-PRODUCT_PACKAGES += \
-    Terminal
-
-# Fluid packages
-PRODUCT_PACKAGES += \
-    FluidSetupWizard \
-    Updater
-
-# Themes
-PRODUCT_PACKAGES += \
-    ThemePicker
-
-# Extra tools in Fluid
-PRODUCT_PACKAGES += \
-    7z \
-    awk \
-    bash \
-    bzip2 \
-    curl \
-    getcap \
-    htop \
-    lib7z \
-    libsepol \
-    nano \
-    pigz \
-    powertop \
-    setcap \
-    unrar \
-    unzip \
-    vim \
-    wget \
-    zip
-
-# Filesystems tools
-PRODUCT_PACKAGES += \
-    fsck.exfat \
-    fsck.ntfs \
-    mke2fs \
-    mkfs.exfat \
-    mkfs.ntfs \
-    mount.ntfs
-
-# Openssh
-PRODUCT_PACKAGES += \
-    scp \
-    sftp \
-    ssh \
-    sshd \
-    sshd_config \
-    ssh-keygen \
-    start-ssh
-
-# rsync
-PRODUCT_PACKAGES += \
-    rsync
-
 # Storage manager
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
@@ -170,3 +113,6 @@ DEVICE_PACKAGE_OVERLAYS += vendor/fluid/overlay/common
 
 # Versioning
 include vendor/fluid/config/version.mk
+
+# Include extra packages
+include vendor/fluid/config/packages.mk
