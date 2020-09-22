@@ -165,47 +165,8 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/fluid/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/fluid/overlay/common
 
-PRODUCT_VERSION_MAJOR = 11
-PRODUCT_VERSION_MINOR = 0
-PRODUCT_VERSION_CODENAME := Rum
-
-# Set FLUID_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
-
-ifndef FLUID_BUILDTYPE
-    ifdef RELEASE_TYPE
-        # Starting with "FLUID_" is optional
-        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^FLUID_||g')
-        FLUID_BUILDTYPE := $(RELEASE_TYPE)
-    endif
-endif
-
-# Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter OFFICIAL CI BETA,$(FLUID_BUILDTYPE)),)
-    FLUID_BUILDTYPE :=
-endif
-
-ifndef FLUID_BUILDTYPE
-    # If FLUID_BUILDTYPE is not defined, set to UNOFFICIAL
-    FLUID_BUILDTYPE := UNOFFICIAL
-endif
-
-ifeq ($(FLUID_BUILDTYPE), CI)
-    # Enforce time of day appending on CI builds
-    FLUID_VERSION_APPEND_TIME_OF_DAY := true
-endif
-
-ifeq ($(FLUID_VERSION_APPEND_TIME_OF_DAY),true)
-    FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(PRODUCT_VERSION_CODENAME)-$(FLUID_BUILDTYPE)-$(FLUID_BUILD)-$(shell date -u +%Y%m%d_%H%M%S)
-else
-    FLUID_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(PRODUCT_VERSION_CODENAME)-$(FLUID_BUILDTYPE)-$(FLUID_BUILD)-$(shell date -u +%Y%m%d)
-endif
-
-PRODUCT_EXTRA_RECOVERY_KEYS += \
-    vendor/fluid/build/target/product/security/lineage
-
--include vendor/fluid-priv/keys/keys.mk
-
-FLUID_DISPLAY_VERSION := $(FLUID_VERSION)
-
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/fluid/config/partner_gms.mk
+
+# Versioning
+include vendor/fluid/config/version.mk
