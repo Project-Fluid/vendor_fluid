@@ -1,5 +1,5 @@
-# Allow vendor/extra to override any property by setting it first
-$(call inherit-product-if-exists, vendor/extra/product.mk)
+# Allow vendor/fextras to override any property by setting it first
+$(call inherit-product-if-exists, vendor/fextras/Fextras.mk)
 
 PRODUCT_BRAND ?= Fluid
 
@@ -88,24 +88,17 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
-# Bootanimation
-PRODUCT_COPY_FILES += \
-    vendor/fluid/bootanimation/bootanimation.zip:$(TARGET_COPY_OUT_SYSTEM)/media/bootanimation.zip
-
 # AOSP packages
 PRODUCT_PACKAGES += \
     Terminal
 
 # Fluid packages
 PRODUCT_PACKAGES += \
-    FluidParts \
-    FluidSettingsProvider \
     FluidSetupWizard \
     Updater
 
 # Themes
 PRODUCT_PACKAGES += \
-    FluidThemesStub \
     ThemePicker
 
 # Extra tools in Fluid
@@ -163,12 +156,6 @@ PRODUCT_PACKAGES_DEBUG += \
 # Root
 PRODUCT_PACKAGES += \
     adb_root
-ifneq ($(TARGET_BUILD_VARIANT),user)
-ifeq ($(WITH_SU),true)
-PRODUCT_PACKAGES += \
-    su
-endif
-endif
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
