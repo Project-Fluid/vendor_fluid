@@ -5,7 +5,7 @@ PRODUCT_PACKAGES += \
     Terminal \
     ThemePicker \
     QuickAccessWallet
-    
+
 # Extra tools in Fluid
 PRODUCT_PACKAGES += \
     7z \
@@ -49,3 +49,8 @@ PRODUCT_PACKAGES += \
 # rsync
 PRODUCT_PACKAGES += \
     rsync
+
+# Overlays
+PRODUCT_PACKAGES += \
+    GesturalNavigationOverlayLong \
+    GesturalNavigationOverlayMedium
