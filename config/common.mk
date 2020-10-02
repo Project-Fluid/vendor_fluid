@@ -1,5 +1,5 @@
-# Allow vendor/fextras to override any property by setting it first
-$(call inherit-product-if-exists, vendor/fextras/Fextras.mk)
+# Allow vendor/extras to override any property by setting it first
+$(call inherit-product-if-exists, vendor/extras/product.mk)
 
 PRODUCT_BRAND ?= Fluid
 
@@ -114,5 +114,10 @@ DEVICE_PACKAGE_OVERLAYS += vendor/fluid/overlay/common
 # Versioning
 include vendor/fluid/config/version.mk
 
-# Include extra packages
+# Packages
 include vendor/fluid/config/packages.mk
+
+ifneq ($(TARGET_BUILD_FEXTRAS),false)
+# Fextras
+include vendor/fextras/Fextras.mk
+endif
