@@ -1,4 +1,4 @@
-// LineageOS soong configs
+// Fluid soong configs
 
 bootstrap_go_package {
     name: "soong-fluid-generator",
@@ -53,7 +53,7 @@ cc_library_headers {
 soong_config_module_type {
     name: "gralloc_10_usage_bits",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     value_variables: ["additional_gralloc_10_usage_bits"],
     properties: ["cppflags"],
 }
@@ -70,7 +70,7 @@ gralloc_10_usage_bits {
 soong_config_module_type {
     name: "target_process_sdk_version_overrides",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     value_variables: ["target_process_sdk_version_override"],
     properties: ["cppflags"],
 }
@@ -87,7 +87,7 @@ target_process_sdk_version_overrides {
 soong_config_module_type {
     name: "target_shim_libs",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     value_variables: ["target_ld_shim_libs"],
     properties: ["cppflags"],
 }
@@ -104,7 +104,7 @@ target_shim_libs {
 soong_config_module_type {
     name: "vendor_init",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     value_variables: ["target_init_vendor_lib"],
     properties: ["whole_static_libs"],
 }
@@ -121,7 +121,7 @@ vendor_init {
 soong_config_module_type {
     name: "surfaceflinger_fod_lib",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     value_variables: ["target_surfaceflinger_fod_lib"],
     properties: [
         "cppflags",
@@ -142,7 +142,7 @@ surfaceflinger_fod_lib {
 soong_config_module_type {
     name: "ignores_ftp_pptp_conntrack_failure_defaults",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     bool_variables: ["ignores_ftp_pptp_conntrack_failure"],
     properties: ["cppflags"],
 }
@@ -159,7 +159,7 @@ ignores_ftp_pptp_conntrack_failure_defaults {
 soong_config_module_type {
     name: "needs_netd_direct_connect_rule",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     bool_variables: ["needs_netd_direct_connect_rule"],
     properties: ["cppflags"],
 }
@@ -176,7 +176,7 @@ needs_netd_direct_connect_rule {
 soong_config_module_type {
     name: "no_cameraserver",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     bool_variables: ["has_legacy_camera_hal1"],
     properties: [
         "cppflags",
@@ -198,7 +198,7 @@ no_cameraserver {
 soong_config_module_type {
     name: "camera_in_mediaserver",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     bool_variables: ["has_legacy_camera_hal1"],
     properties: [
         "overrides",
@@ -226,7 +226,7 @@ camera_in_mediaserver {
 soong_config_module_type {
     name: "bootloader_message_offset",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     value_variables: ["bootloader_message_offset"],
     properties: [
         "cflags",
@@ -247,7 +247,7 @@ bootloader_message_offset {
 soong_config_module_type {
     name: "camera_parameter_library",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     value_variables: ["uses_camera_parameter_lib"],
     properties: ["whole_static_libs"],
 }
@@ -265,7 +265,7 @@ camera_parameter_library {
 soong_config_module_type {
     name: "nvidia_enhancements",
     module_type: "cc_defaults",
-    config_namespace: "lineageNvidiaVars",
+    config_namespace: "fluidNvidiaVars",
     bool_variables: ["uses_nvidia_enhancements"],
     properties: ["cppflags"],
 }
@@ -283,7 +283,7 @@ nvidia_enhancements {
 soong_config_module_type {
     name: "librmnetctl_pre_uplink",
     module_type: "cc_defaults",
-    config_namespace: "lineageQcomVars",
+    config_namespace: "fluidQcomVars",
     bool_variables: ["uses_pre_uplink_features_netmgrd"],
     properties: ["cflags"],
 }
@@ -300,7 +300,7 @@ librmnetctl_pre_uplink {
 soong_config_module_type {
     name: "qti_camera_device",
     module_type: "cc_defaults",
-    config_namespace: "lineageQcomVars",
+    config_namespace: "fluidQcomVars",
     bool_variables: ["uses_qti_camera_device"],
     properties: [
         "cppflags",
@@ -321,7 +321,7 @@ qti_camera_device {
 soong_config_module_type {
     name: "extended_compress_format",
     module_type: "cc_defaults",
-    config_namespace: "lineageQcomVars",
+    config_namespace: "fluidQcomVars",
     bool_variables: ["supports_extended_compress_format"],
     properties: ["cflags"],
 }
@@ -338,7 +338,7 @@ extended_compress_format {
 soong_config_module_type {
     name: "vold_hw_fde",
     module_type: "cc_defaults",
-    config_namespace: "lineageQcomVars",
+    config_namespace: "fluidQcomVars",
     bool_variables: ["supports_hw_fde"],
     properties: [
         "cflags",
@@ -361,7 +361,7 @@ vold_hw_fde {
 soong_config_module_type {
     name: "vold_hw_fde_perf",
     module_type: "cc_defaults",
-    config_namespace: "lineageQcomVars",
+    config_namespace: "fluidQcomVars",
     bool_variables: ["supports_hw_fde_perf"],
     properties: [
         "cflags",
@@ -382,7 +382,7 @@ vold_hw_fde_perf {
 soong_config_module_type {
     name: "qti_cryptfshw_qsee",
     module_type: "cc_defaults",
-    config_namespace: "lineageQcomVars",
+    config_namespace: "fluidQcomVars",
     bool_variables: ["should_wait_for_qsee"],
     properties: ["cflags"],
 }
@@ -399,7 +399,7 @@ qti_cryptfshw_qsee {
 soong_config_module_type {
     name: "surfaceflinger_qcom_extensions",
     module_type: "cc_defaults",
-    config_namespace: "lineageQcomVars",
+    config_namespace: "fluidQcomVars",
     value_variables: ["qcom_soong_namespace"],
     properties: [
         "cppflags",
@@ -420,7 +420,7 @@ surfaceflinger_qcom_extensions {
 soong_config_module_type {
     name: "stagefright_qcom_legacy",
     module_type: "cc_defaults",
-    config_namespace: "lineageQcomVars",
+    config_namespace: "fluidQcomVars",
     bool_variables: ["uses_qcom_bsp_legacy"],
     properties: ["cppflags"],
 }
