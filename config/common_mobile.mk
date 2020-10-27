@@ -26,14 +26,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
-# Custom off-mode charger
-ifeq ($(WITH_LINEAGE_CHARGER),true)
-PRODUCT_PACKAGES += \
-    lineage_charger_res_images \
-    font_log.png \
-    libhealthd.lineage
-endif
-
 # Media
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     media.recorder.show_manufacturer_and_model=true
