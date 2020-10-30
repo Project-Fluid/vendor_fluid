@@ -14,8 +14,8 @@
 # limitations under the License.
 
 # Versioning System
-FLUID_CODENAME = Rum
-FLUID_NUM_VER = 1.0
+FLUID_CODENAME := Rum
+FLUID_NUM_VER := 1.0
 
 TARGET_PRODUCT_SHORT := $(subst fluid_,,$(FLUID_BUILD_TYPE))
 
@@ -43,12 +43,3 @@ endif
 ROM_FINGERPRINT := Fluid/$(PLATFORM_VERSION)/$(TARGET_PRODUCT_SHORT)/$(BUILD_TIME)
 FLUID_DISPLAY_VERSION := $(FLUID_VERSION)
 RELEASE_TYPE := $(FLUID_BUILD_TYPE)
-
-ADDITIONAL_BUILD_PROPERTIES += \
-  ro.fluid.build.version=$(FLUID_BUILD_VERSION) \
-  ro.fluid.build.date=$(BUILD_DATE) \
-  ro.fluid.buildtype=$(FLUID_BUILD_TYPE) \
-  ro.fluid.fingerprint=$(ROM_FINGERPRINT) \
-  ro.fluid.version=$(FLUID_VERSION) \
-  ro.fluid.device=$(FLUID_BUILD) \
-  ro.modversion=$(FLUID_VERSION)
