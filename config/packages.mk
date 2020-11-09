@@ -3,8 +3,9 @@ PRODUCT_PACKAGES += \
     FluidSetupWizard \
     Updater \
     Terminal \
-    ThemePicker
-
+    ThemePicker \
+    QuickAccessWallet
+    
 # Extra tools in Fluid
 PRODUCT_PACKAGES += \
     7z \
