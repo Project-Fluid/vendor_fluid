@@ -106,8 +106,7 @@ PRODUCT_PACKAGES += \
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI \
-    TrebuchetQuickStep
+    SystemUI
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/fluid/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/fluid/overlay/common
