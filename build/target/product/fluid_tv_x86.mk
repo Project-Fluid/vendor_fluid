@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2018-2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,24 +11,16 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/fluid_arm.mk \
-    $(LOCAL_DIR)/fluid_arm64.mk \
-    $(LOCAL_DIR)/fluid_x86.mk \
-    $(LOCAL_DIR)/fluid_x86_64.mk \
-    $(LOCAL_DIR)/fluid_tv_arm.mk \
-    $(LOCAL_DIR)/fluid_tv_arm64.mk \
-    $(LOCAL_DIR)/fluid_tv_x86.mk \
-    $(LOCAL_DIR)/fluid_tv_x86_64.mk
+$(call inherit-product, device/google/atv/products/aosp_tv_x86.mk)
 
-COMMON_LUNCH_CHOICES := \
-    fluid_arm-userdebug \
-    fluid_arm64-userdebug \
-    fluid_x86-userdebug \
-    fluid_x86_64-userdebug \
-    fluid_tv_arm-userdebug \
-    fluid_tv_arm64-userdebug \
-    fluid_tv_x86-userdebug \
-    fluid_tv_x86_64-userdebug
+include vendor/fluid/build/target/product/fluid_generic_tv_target.mk
+
+TARGET_USES_64_BIT_BINDER := true
+
+PRODUCT_NAME := fluid_tv_x86
+
+PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS :=
+
+PRODUCT_SDK_ADDON_NAME := fluid
+PRODUCT_SDK_ADDON_SYS_IMG_SOURCE_PROP := $(LOCAL_PATH)/source.properties
