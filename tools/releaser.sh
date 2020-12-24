@@ -88,7 +88,7 @@ update_json() {
 RELEASE_CURRENT_DIR="$(pwd)"
 
 # Variables
-RELEASE_ANDROID_VERSION="ten"
+RELEASE_ANDROID_VERSION="eleven"
 RELEASE_JSON_REPO_DIR="tools/fluid/official_devices"
 RELEASE_SFTP_SERVER="frs.sourceforge.net"
 RELEASE_SFTP_MAIN_DIR="/home/frs/project/project-fluid"
@@ -106,7 +106,7 @@ read -s -p "SourceForge password: " RELEASE_SF_PASSWORD
 echo ""
 
 # Get all the device official builds
-RELEASE_ARTIFACTS=$(ls out/target/product/$RELEASE_DEVICE_CODENAME/FluidOS-*-OFFICIAL-*.zip)
+RELEASE_ARTIFACTS=$(ls out/target/product/$RELEASE_DEVICE_CODENAME/Fluid-*-OFFICIAL-*.zip)
 # Check if a build has been found
 [ "$RELEASE_ARTIFACTS" = "" ] && echo "Error: no artifact has been found! Be sure that an official build is in out folder" && exit
 
