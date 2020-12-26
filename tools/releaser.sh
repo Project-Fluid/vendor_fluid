@@ -33,6 +33,8 @@ get_build_infos() {
 
 upload_artifact() {
 	printf "Uploading build..."
+        # Add the sftp keys to avoid error 6
+        ssh-keyscan ${RELEASE_SFTP_SERVER} >> ~/.ssh/known_hosts
 	# Recursively create dirs if they doesn't exists and upload file
 	sshpass -p "$RELEASE_SF_PASSWORD" sftp -oBatchMode=no "${RELEASE_SF_USER}@${RELEASE_SFTP_SERVER}:$RELEASE_SFTP_MAIN_DIR" > /dev/null 2>&1 <<EOF
 mkdir $RELEASE_DEVICE_CODENAME
