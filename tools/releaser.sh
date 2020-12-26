@@ -25,7 +25,7 @@ get_build_infos() {
 	if [ "${RELEASE_ARTIFACT_PARTS[6]}" != "" ]; then
 		RELEASE_ARTIFACT_VARIANT=${RELEASE_ARTIFACT_PARTS[6]}
 	else
-		RELEASE_ARTIFACT_VARIANT=vanilla
+		RELEASE_ARTIFACT_VARIANT=gappless
 	fi
 	RELEASE_ARTIFACT_SIZE="$(stat -c%s "$1")"
 	RELEASE_ARTIFACT_SHA1SUM="$(sha1sum "$1" | awk '{print $1}')"
@@ -124,8 +124,8 @@ for artifact in $RELEASE_ARTIFACTS; do
 	get_build_infos "$artifact"
 	if [ "$RELEASE_ARTIFACT_VARIANT" = "gapped" ]; then
 		echo "Found a gapped build: $(basename "$artifact")"
-	elif [ "$RELEASE_ARTIFACT_VARIANT" = "vanilla" ]; then
-		echo "Found a vanilla build: $(basename "$artifact")"
+	elif [ "$RELEASE_ARTIFACT_VARIANT" = "gappless" ]; then
+		echo "Found a gappless build: $(basename "$artifact")"
 	else
 		echo "Error: Unable to determine the variant of this build: $(basename "$artifact")"
 		echo "Aborting..."
