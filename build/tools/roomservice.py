@@ -189,6 +189,9 @@ def add_to_manifest(repositories, fallback_branch = None):
         lm = ElementTree.Element("manifest")
 
     for repository in repositories:
+        snippet = ElementTree.parse(".repo/manifests/snippets/fluid.xml")
+        remote = [i for i in snippet.findall('remote') if i.attrib["name"] == "fluid-devices"][0]
+        revision = remote.get("revision")
         repo_name = repository['repository']
         repo_target = repository['target_path']
         print('Checking if %s is fetched from %s' % (repo_target, repo_name))
@@ -198,7 +201,7 @@ def add_to_manifest(repositories, fallback_branch = None):
 
         print('Adding dependency: Project-Fluid-devices/%s -> %s' % (repo_name, repo_target))
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": "Project-Fluid-devices/%s" % repo_name })
+            "revision": revision, "remote": "github", "name": "Project-Fluid-devices/%s" % repo_name })
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
