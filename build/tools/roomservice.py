@@ -128,10 +128,10 @@ def get_manifest_path():
         return ".repo/manifests/{}".format(m.find("include").get("name"))
 
 def get_default_revision():
-    m = ElementTree.parse(get_manifest_path())
-    d = m.findall('default')[0]
+    m = ElementTree.parse(".repo/manifests/snippets/fluid.xml")
+    d = [i for i in m.findall('remote') if i.attrib["name"] == "fluid-devices"][0]
     r = d.get('revision')
-    return r.replace('refs/heads/', '').replace('refs/tags/', '')
+    return r
 
 def get_from_manifest(devicename):
     try:
