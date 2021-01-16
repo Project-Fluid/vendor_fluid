@@ -193,12 +193,12 @@ def add_to_manifest(repositories, fallback_branch = None):
         repo_target = repository['target_path']
         print('Checking if %s is fetched from %s' % (repo_target, repo_name))
         if is_in_manifest(repo_target):
-            print('Fluid/%s already fetched to %s' % (repo_name, repo_target))
+            print('Project-Fluid-devices/%s already fetched to %s' % (repo_name, repo_target))
             continue
 
-        print('Adding dependency: Fluid/%s -> %s' % (repo_name, repo_target))
+        print('Adding dependency: Project-Fluid-devices/%s -> %s' % (repo_name, repo_target))
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": "Fluid/%s" % repo_name })
+            "remote": "github", "name": "Project-Fluid-devices/%s" % repo_name })
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
