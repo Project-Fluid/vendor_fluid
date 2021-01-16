@@ -56,8 +56,8 @@ PRODUCT_PACKAGES += \
 
 # Primary Themes
 PRODUCT_PACKAGES += \
-    SystemRavenBlackOverlay \
-    SystemUIRavenBlackOverlay \
+    SystemPitchBlackOverlay \
+    SystemUIPitchBlackOverlay \
     SystemDarkGrayOverlay \
     SystemUIDarkGrayOverlay \
     SystemStyleOverlay \
