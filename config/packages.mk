@@ -48,13 +48,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     rsync
 
-# Overlays
+# Gesture Overlays
 PRODUCT_PACKAGES += \
     GesturalNavigationOverlayLong \
     GesturalNavigationOverlayMedium \
     GesturalNavigationOverlayHidden
 
-# Themes
+# Primary Themes
 PRODUCT_PACKAGES += \
     SystemRavenBlackOverlay \
     SystemUIRavenBlackOverlay \
@@ -66,3 +66,8 @@ PRODUCT_PACKAGES += \
     SystemUINightOverlay \
     SystemSolarizedDarkOverlay \
     SystemUISolarizedDarkOverlay
+
+# Accents
+PRODUCT_PACKAGES += \
+    AccentColorOPRedOverlay \
+    AccentColorPixelBlueOverlay
