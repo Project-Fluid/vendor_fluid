@@ -54,6 +54,10 @@ except:
 if not depsonly:
     print("Device %s not found. Attempting to retrieve device repository from Fluid Devices Github (http://github.com/Project-Fluid-devices)." % device)
 
+if os.environ.get("IS_CIENV") is None:
+    print('Building in a non-CI environment, will not run roomservice. If you would like to run roomservice please "export IS_CIENV=true".')
+    exit()
+
 repositories = []
 
 try:
