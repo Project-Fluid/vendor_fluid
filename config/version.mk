@@ -15,7 +15,7 @@
 
 # Versioning System
 FLUID_CODENAME := Rum
-FLUID_NUM_VER := 1.1
+FLUID_NUM_VER := 1.2
 
 TARGET_PRODUCT_SHORT := $(subst fluid_,,$(FLUID_BUILD_TYPE))
 
