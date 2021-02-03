@@ -942,7 +942,3 @@ function fixup_common_out_dir() {
         mkdir -p ${common_out_dir}
     fi
 }
-
-fluid_releaser() {
-    $ANDROID_BUILD_TOP/vendor/fluid/tools/releaser.sh
-}
