@@ -4,7 +4,8 @@ PRODUCT_PACKAGES += \
     Updater \
     Terminal \
     ThemePicker \
-    QuickAccessWallet
+    QuickAccessWallet \
+    StitchImage
 
 # Extra tools in Fluid
 PRODUCT_PACKAGES += \
