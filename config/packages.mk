@@ -2,7 +2,6 @@
 PRODUCT_PACKAGES += \
     FluidSetupWizard \
     Updater \
-    Terminal \
     ThemePicker \
     QuickAccessWallet \
     StitchImage
