@@ -259,9 +259,9 @@ if __name__ == '__main__':
     # {project: {path, revision}}
 
     for project in projects:
-        name = project.get('name')
+        name = project.get('name').replace("Project-Fluid/", "")
         # when name and path are equal, "repo manifest" doesn't return a path at all, so fall back to name
-        path = project.get('path', name)
+        path = project.get('path', name).replace("Project-Fluid/", "")
         revision = project.get('upstream')
         if revision is None:
             for remote in remotes:
@@ -341,7 +341,7 @@ if __name__ == '__main__':
 
         mergables.append({
             'subject': review['subject'],
-            'project': review['project'],
+            'project': review['project'].replace("Project-Fluid/", ""),
             'branch': review['branch'],
             'change_id': review['change_id'],
             'change_number': review['number'],
@@ -373,6 +373,7 @@ if __name__ == '__main__':
         # Convert the project name to a project path
         #   - check that the project path exists
         project_path = None
+        item['project'].replace("Project-Fluid/", "")
 
         if item['project'] in project_name_to_data and item['branch'] in project_name_to_data[item['project']]:
             project_path = project_name_to_data[item['project']][item['branch']]
