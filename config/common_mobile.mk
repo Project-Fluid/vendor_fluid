@@ -1,11 +1,6 @@
 # Inherit common mobile Fluid stuff
 $(call inherit-product, vendor/fluid/config/common.mk)
 
-ifneq ($(TARGET_BUILD_VARIANT),user)
-# Thank you, please drive thru!
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.sys.dun.override=0
-endif
-
 # Optional packages
 PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
