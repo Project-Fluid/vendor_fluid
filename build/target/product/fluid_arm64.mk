@@ -13,6 +13,7 @@
 # limitations under the License.
 
 $(call inherit-product, build/target/product/aosp_arm64.mk)
+$(call inherit-product, build/target/product/gsi_release.mk)
 
 include vendor/fluid/build/target/product/fluid_generic_target.mk
 
