@@ -53,7 +53,7 @@ cc_library_headers {
 soong_config_module_type {
     name: "disable_postrender_cleanup",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     bool_variables: ["disable_postrender_cleanup"],
     properties: ["cppflags"],
 }
@@ -210,7 +210,7 @@ needs_netd_direct_connect_rule {
 soong_config_module_type {
     name: "legacy_hw_disk_encryption",
     module_type: "cc_defaults",
-    config_namespace: "lineageQcomVars",
+    config_namespace: "fluidQcomVars",
     bool_variables: ["legacy_hw_disk_encryption"],
     properties: ["cppflags"],
 }
@@ -275,9 +275,31 @@ camera_in_mediaserver {
 }
 
 soong_config_module_type {
+    name: "qti_usb_hal_supported_modes",
+    module_type: "cc_defaults",
+    config_namespace: "fluidQcomVars",
+    bool_variables: ["supports_audio_accessory", "supports_debug_accessory"],
+    properties: [
+        "cppflags",
+    ],
+}
+
+qti_usb_hal_supported_modes {
+    name: "qti_usb_hal_supported_modes_defaults",
+    soong_config_variables: {
+        supports_audio_accessory: {
+            cppflags: ["-DSUPPORTS_AUDIO_ACCESSORY"],
+        },
+        supports_debug_accessory: {
+            cppflags: ["-DSUPPORTS_DEBUG_ACCESSORY"],
+        },
+    },
+}
+
+soong_config_module_type {
     name: "has_memfd_backport",
     module_type: "cc_defaults",
-    config_namespace: "lineageGlobalVars",
+    config_namespace: "fluidGlobalVars",
     bool_variables: ["has_memfd_backport"],
     properties: ["cppflags"],
 }
