@@ -20,7 +20,7 @@
 # Fluid OTA update package
 
 FLUID_TARGET_PACKAGE := $(PRODUCT_OUT)/Fluid-$(FLUID_VERSION).zip
-MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
+SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 
 ifneq ($(IS_CIENV),true)
   CL_RED="\033[31m"
@@ -32,7 +32,7 @@ endif
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 fluid: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(FLUID_TARGET_PACKAGE)
-	$(hide) $(MD5) $(FLUID_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(FLUID_TARGET_PACKAGE).md5sum
+	$(hide) $(SHA256) $(FLUID_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(FLUID_TARGET_PACKAGE).sha256sum
 	@echo -e ""
 	@echo -e "${cya}Building ${bldcya}Fluid! ${txtrst}";
 	@echo -e ""
@@ -58,7 +58,7 @@ fluid: otapackage
 	@echo -e ${CL_GRN}"----- Enjoy! -----"
 	@echo -e ""
 	@echo -e "zip: "$(FLUID_TARGET_PACKAGE)
-	@echo -e "md5: `cat $(FLUID_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`"
+	@echo -e "sha256: `cat $(FLUID_TARGET_PACKAGE).sha256sum | cut -d ' ' -f 1`"
 	@echo -e "size:` ls -lah $(FLUID_TARGET_PACKAGE) | cut -d ' ' -f 5`"
 	@echo -e ""
 
