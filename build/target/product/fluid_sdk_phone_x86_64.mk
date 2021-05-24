@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2018-2021 The LineageOS Project
+# Copyright (C) 2021 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,20 +11,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/fluid_gsi_arm.mk \
-    $(LOCAL_DIR)/fluid_gsi_arm64.mk \
-    $(LOCAL_DIR)/fluid_gsi_x86.mk \
-    $(LOCAL_DIR)/fluid_gsi_x86_64.mk \
-    $(LOCAL_DIR)/fluid_sdk_phone_x86.mk \
-    $(LOCAL_DIR)/fluid_sdk_phone_x86_64.mk
+$(call inherit-product, build/target/product/sdk_phone_x86_64.mk)
 
-COMMON_LUNCH_CHOICES := \
-    fluid_gsi_arm-userdebug \
-    fluid_gsi_arm64-userdebug \
-    fluid_gsi_x86-userdebug \
-    fluid_gsi_x86_64-userdebug \
-    fluid_sdk_phone_x86-userdebug \
-    fluid_sdk_phone_x86_64-userdebug
+include vendor/fluid/build/target/product/lineage_generic_target.mk
+
+# Overrides
+PRODUCT_NAME := fluid_sdk_phone_x86_64
+PRODUCT_MODEL := Fluid Android SDK built for x86_64
