@@ -15,8 +15,5 @@
 $(call inherit-product, build/target/product/gsi_release.mk)
 $(call inherit-product, vendor/fluid/config/common_full_phone.mk)
 
-PRODUCT_COPY_FILES += \
-    device/generic/goldfish/data/etc/permissions/privapp-permissions-goldfish.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-goldfish.xml \
-
 # Allow building otatools
 TARGET_FORCE_OTA_PACKAGE := true
