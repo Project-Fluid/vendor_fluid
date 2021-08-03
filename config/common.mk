@@ -107,7 +107,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/fluid/overlay
-DEVICE_PACKAGE_OVERLAYS += vendor/fluid/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/fluid/overlay/common
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/fluid/config/partner_gms.mk
