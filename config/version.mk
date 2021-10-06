@@ -14,8 +14,8 @@
 # limitations under the License.
 
 # Versioning System
-FLUID_CODENAME := Rum
-FLUID_NUM_VER := 1.7
+FLUID_CODENAME := Soda
+FLUID_NUM_VER := 2.0
 
 TARGET_PRODUCT_SHORT := $(subst fluid_,,$(FLUID_BUILD_TYPE))
 
