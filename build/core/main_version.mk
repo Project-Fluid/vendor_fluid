@@ -12,5 +12,4 @@ ADDITIONAL_SYSTEM_PROPERTIES += \
     ro.fluid.buildtype=$(FLUID_BUILD_TYPE) \
     ro.fluid.fingerprint=$(ROM_FINGERPRINT) \
     ro.fluid.version=$(FLUID_VERSION) \
-    ro.fluid.device=$(FLUID_BUILD) \
     ro.modversion=$(FLUID_VERSION)
