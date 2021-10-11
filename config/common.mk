@@ -75,11 +75,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # Include Fluid audio files
 #include vendor/fluid/config/fluid_audio.mk
 
-# TWRP
-ifeq ($(WITH_TWRP),true)
-include vendor/fluid/config/twrp.mk
-endif
-
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
