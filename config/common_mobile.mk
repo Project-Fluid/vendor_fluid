@@ -6,14 +6,9 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     PhotoTable
 
-# AOSP packages
-PRODUCT_PACKAGES += \
-    Email \
-    ExactCalculator \
-    Exchange2
-
 # Fluid packages
 PRODUCT_PACKAGES += \
+    ExactCalculator \
     FluidWalls \
     Profiles
 
