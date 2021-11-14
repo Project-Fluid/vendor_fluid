@@ -54,10 +54,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 endif
 endif
 
-# Backup Services whitelist
-PRODUCT_COPY_FILES += \
-    vendor/fluid/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
-
 # Fluid-specific init rc file
 PRODUCT_COPY_FILES += \
     vendor/fluid/prebuilt/common/etc/init/init.fluid-system.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.fluid-system.rc
