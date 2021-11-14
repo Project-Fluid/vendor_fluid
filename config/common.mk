@@ -49,9 +49,9 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/fluid/config/permissions/backup.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/backup.xml
 
-# Copy all Fluid-specific init rc files
-$(foreach f,$(wildcard vendor/fluid/prebuilt/common/etc/init/*.rc),\
-	$(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
+# Fluid-specific init rc file
+PRODUCT_COPY_FILES += \
+    vendor/fluid/prebuilt/common/etc/init/init.fluid-system.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.fluid-system.rc
 
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
@@ -89,6 +89,14 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 # Screen Resolution
 TARGET_SCREEN_WIDTH ?= 1080
 TARGET_SCREEN_HEIGHT ?= 1920
+
+# Fluid Updater init
+PRODUCT_COPY_FILES += \
+    vendor/fluid/prebuilt/common/etc/init/init.fluid-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.fluid-updater.rc
+
+# OpenSSH init
+PRODUCT_COPY_FILES += \
+    vendor/fluid/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
 
 # Storage manager
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
