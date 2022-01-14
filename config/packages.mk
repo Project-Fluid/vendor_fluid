@@ -3,8 +3,7 @@ PRODUCT_PACKAGES += \
     FluidSetupWizard \
     Updater \
     ThemePicker \
-    QuickAccessWallet \
-    StitchImage
+    QuickAccessWallet
 
 # Extra tools in Fluid
 PRODUCT_PACKAGES += \
