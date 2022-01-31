@@ -56,7 +56,7 @@ endif
 
 # Fluid-specific init rc file
 PRODUCT_COPY_FILES += \
-    vendor/fluid/prebuilt/common/etc/init/init.fluid-system.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.fluid-system.rc
+    vendor/fluid/prebuilt/common/etc/init/init.fluid-system_ext.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.fluid-system_ext.rc
 
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
