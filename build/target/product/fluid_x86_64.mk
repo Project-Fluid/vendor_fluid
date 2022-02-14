@@ -17,4 +17,6 @@ $(call inherit-product, build/target/product/gsi_release.mk)
 
 include vendor/fluid/build/target/product/fluid_generic_target.mk
 
+TARGET_NO_KERNEL_OVERRIDE := true
+
 PRODUCT_NAME := fluid_x86_64
