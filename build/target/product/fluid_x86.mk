@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2020 The LineageOS Project
+# Copyright (C) 2018-2022 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,6 +20,3 @@ include vendor/fluid/build/target/product/fluid_generic_target.mk
 TARGET_USES_64_BIT_BINDER := true
 
 PRODUCT_NAME := fluid_x86
-
-PRODUCT_SDK_ADDON_NAME := fluid
-PRODUCT_SDK_ADDON_SYS_IMG_SOURCE_PROP := $(LOCAL_PATH)/source.properties
