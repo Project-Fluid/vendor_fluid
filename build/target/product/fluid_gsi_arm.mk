@@ -12,11 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, build/target/product/aosp_arm64.mk)
-$(call inherit-product, build/target/product/gsi_release.mk)
+$(call inherit-product, device/generic/common/gsi_arm.mk)
 
 include vendor/fluid/build/target/product/fluid_generic_target.mk
 
+PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
+
 TARGET_NO_KERNEL_OVERRIDE := true
 
-PRODUCT_NAME := fluid_arm64
+PRODUCT_NAME := fluid_gsi_arm

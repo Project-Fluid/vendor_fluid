@@ -15,13 +15,13 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/fluid_arm.mk \
-    $(LOCAL_DIR)/fluid_arm64.mk \
-    $(LOCAL_DIR)/fluid_x86.mk \
-    $(LOCAL_DIR)/fluid_x86_64.mk
+    $(LOCAL_DIR)/fluid_gsi_arm.mk \
+    $(LOCAL_DIR)/fluid_gsi_arm64.mk \
+    $(LOCAL_DIR)/fluid_gsi_x86.mk \
+    $(LOCAL_DIR)/fluid_gsi_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
-    fluid_arm-userdebug \
-    fluid_arm64-userdebug \
-    fluid_x86-userdebug \
-    fluid_x86_64-userdebug
+    fluid_gsi_arm-userdebug \
+    fluid_gsi_arm64-userdebug \
+    fluid_gsi_x86-userdebug \
+    fluid_gsi_x86_64-userdebug
