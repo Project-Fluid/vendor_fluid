@@ -48,7 +48,7 @@ SOONG_CONFIG_fluidGlobalVars += \
 
 SOONG_CONFIG_NAMESPACES += fluidNvidiaVars
 SOONG_CONFIG_fluidNvidiaVars += \
-    uses_nv_enhancements
+    uses_nvidia_enhancements
 
 SOONG_CONFIG_NAMESPACES += fluidQcomVars
 SOONG_CONFIG_fluidQcomVars += \
@@ -77,7 +77,7 @@ SOONG_CONFIG_fluidGlobalVars_ignores_ftp_pptp_conntrack_failure := $(TARGET_IGNO
 SOONG_CONFIG_fluidGlobalVars_needs_camera_boottime := $(TARGET_CAMERA_BOOTTIME_TIMESTAMP)
 SOONG_CONFIG_fluidGlobalVars_needs_netd_direct_connect_rule := $(TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE)
 SOONG_CONFIG_fluidGlobalVars_has_memfd_backport := $(TARGET_HAS_MEMFD_BACKPORT)
-SOONG_CONFIG_fluidNvidiaVars_uses_nv_enhancements := $(NV_ANDROID_FRAMEWORK_ENHANCEMENTS)
+SOONG_CONFIG_fluidNvidiaVars_uses_nvidia_enhancements := $(NV_ANDROID_FRAMEWORK_ENHANCEMENTS)
 SOONG_CONFIG_fluidQcomVars_legacy_hw_disk_encryption := $(TARGET_LEGACY_HW_DISK_ENCRYPTION)
 SOONG_CONFIG_fluidQcomVars_should_wait_for_qsee := $(TARGET_KEYMASTER_WAIT_FOR_QSEE)
 SOONG_CONFIG_fluidQcomVars_supports_audio_accessory := $(TARGET_QTI_USB_SUPPORTS_AUDIO_ACCESSORY)
