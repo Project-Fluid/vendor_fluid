@@ -717,7 +717,7 @@ function fluidrebase() {
 }
 
 function mka() {
-    m
+    m "$@"
 }
 
 function cmka() {
