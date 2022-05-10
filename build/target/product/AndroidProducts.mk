@@ -18,22 +18,10 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/fluid_arm.mk \
     $(LOCAL_DIR)/fluid_arm64.mk \
     $(LOCAL_DIR)/fluid_x86.mk \
-    $(LOCAL_DIR)/fluid_x86_64.mk \
-    $(LOCAL_DIR)/fluid_tv_arm.mk \
-    $(LOCAL_DIR)/fluid_tv_arm64.mk \
-    $(LOCAL_DIR)/fluid_tv_x86.mk \
-    $(LOCAL_DIR)/fluid_tv_x86_64.mk \
-    $(LOCAL_DIR)/fluid_car_arm64.mk \
-    $(LOCAL_DIR)/fluid_car_x86_64.mk
+    $(LOCAL_DIR)/fluid_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
     fluid_arm-userdebug \
     fluid_arm64-userdebug \
     fluid_x86-userdebug \
-    fluid_x86_64-userdebug \
-    fluid_tv_arm-userdebug \
-    fluid_tv_arm64-userdebug \
-    fluid_tv_x86-userdebug \
-    fluid_tv_x86_64-userdebug \
-    fluid_car_arm64-userdebug \
-    fluid_car_x86_64-userdebug
+    fluid_x86_64-userdebug
