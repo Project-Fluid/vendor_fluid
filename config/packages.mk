@@ -63,8 +63,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AccentColorOPRedOverlay \
     AccentColorPixelBlueOverlay
-
-# Notch city
-PRODUCT_PACKAGES += \
-    HideCutout \
-    StatusBarStock
