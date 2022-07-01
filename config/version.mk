@@ -15,7 +15,7 @@
 
 # Versioning System
 FLUID_CODENAME := Soda
-FLUID_NUM_VER := 2.0
+FLUID_NUM_VER := 2.1
 
 TARGET_PRODUCT_SHORT := $(subst fluid_,,$(FLUID_BUILD_TYPE))
 
