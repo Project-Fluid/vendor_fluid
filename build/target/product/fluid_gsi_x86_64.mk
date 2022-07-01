@@ -16,6 +16,9 @@ $(call inherit-product, device/generic/common/gsi_x86_64.mk)
 
 include vendor/fluid/build/target/product/fluid_generic_target.mk
 
+# Enable mainline checking
+PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
+
 PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
 TARGET_NO_KERNEL_OVERRIDE := true
