@@ -20,6 +20,12 @@ PRODUCT_PACKAGES += \
     vim \
     zip
 
+# Exclude from artifact path req
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+    system/bin/curl \
+    system/bin/getcap \
+    system/bin/setcap
+
 # Openssh
 PRODUCT_PACKAGES += \
     scp \
