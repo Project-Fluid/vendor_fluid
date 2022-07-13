@@ -45,7 +45,7 @@ except ImportError:
 DEBUG = False
 
 custom_local_manifest = ".repo/local_manifests/fluid.xml"
-custom_default_revision =  os.getenv('ROOMSERVICE_DEFAULT_BRANCH', 'fluid-11')
+custom_default_revision =  os.getenv('ROOMSERVICE_DEFAULT_BRANCH', 'fluid-12.1')
 custom_dependencies = "fluid.dependencies"
 org_manifest = "fluid-devices"  # leave empty if org is provided in manifest
 org_display = "Project-Fluid-Devices"  # needed for displaying
