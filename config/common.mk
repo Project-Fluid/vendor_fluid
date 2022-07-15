@@ -136,10 +136,8 @@ include vendor/fluid/config/version.mk
 # Packages
 include vendor/fluid/config/packages.mk
 
-ifneq ($(TARGET_BUILD_FEXTRAS),false)
 # Fextras
 include vendor/fextras/Fextras.mk
-endif
 
 ifeq ($(TARGET_INCLUDE_GAPPS), true)
 # GApps
