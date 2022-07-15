@@ -146,6 +146,11 @@ ifeq ($(TARGET_INCLUDE_GAPPS), true)
 include vendor/gapps/config.mk
 endif
 
+ifneq ($(TARGET_INCLUDE_PIXELEXTRAS), false)
+# PixelExtras
+include vendor/pixelextras/config.mk
+endif
+
 # Face Unlock
 #TARGET_FACE_UNLOCK_SUPPORTED ?= true
 #ifeq ($(TARGET_FACE_UNLOCK_SUPPORTED),true)
